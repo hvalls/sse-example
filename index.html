@@ -1,0 +1,14 @@
+<script>
+
+const eventSource = new EventSource('http://localhost:3000/sse');
+
+eventSource.addEventListener('message', (event) => {
+  const eventData = JSON.parse(event.data);
+  console.log('Event received:', eventData);
+});
+
+eventSource.addEventListener('error', (event) => {
+  console.error('Error:', event);
+});
+
+</script>
